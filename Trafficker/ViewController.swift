@@ -24,8 +24,8 @@ class ViewController: UIViewController {
             
             for camera in cameras {
                 // add map annotation
-                let annotation = TrafficCamera(title: "Title",
-                                               locationName: "LocationName",
+                let annotation = TrafficCamera(title: " ",
+                                               locationName: "",
                                                camera: camera)
                 trafficCams.append(annotation)
             }
