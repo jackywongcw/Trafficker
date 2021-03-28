@@ -13,6 +13,10 @@
 		44C1960C2610570500198872 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C1960A2610570500198872 /* Main.storyboard */; };
 		44C1960E2610570600198872 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44C1960D2610570600198872 /* Assets.xcassets */; };
 		44C196112610570600198872 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44C1960F2610570600198872 /* LaunchScreen.storyboard */; };
+		44C1961B26105E2F00198872 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C1961A26105E2F00198872 /* NetworkManager.swift */; };
+		44C196272610650000198872 /* CodableObjs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C196262610650000198872 /* CodableObjs.swift */; };
+		44C1962B2610758D00198872 /* TrafficCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C1962A2610758D00198872 /* TrafficCamera.swift */; };
+		44C1962E26107B0D00198872 /* TrafficDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C1962D26107B0D00198872 /* TrafficDisplayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		44C1960D2610570600198872 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44C196102610570600198872 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44C196122610570600198872 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44C1961A26105E2F00198872 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		44C196262610650000198872 /* CodableObjs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableObjs.swift; sourceTree = "<group>"; };
+		44C1962A2610758D00198872 /* TrafficCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficCamera.swift; sourceTree = "<group>"; };
+		44C1962D26107B0D00198872 /* TrafficDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficDisplayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 		44C196032610570500198872 /* Trafficker */ = {
 			isa = PBXGroup;
 			children = (
+				44C1961926105E2300198872 /* Managers */,
 				44C196042610570500198872 /* AppDelegate.swift */,
 				44C196062610570500198872 /* SceneDelegate.swift */,
 				44C196082610570500198872 /* ViewController.swift */,
@@ -63,8 +72,19 @@
 				44C1960D2610570600198872 /* Assets.xcassets */,
 				44C1960F2610570600198872 /* LaunchScreen.storyboard */,
 				44C196122610570600198872 /* Info.plist */,
+				44C196262610650000198872 /* CodableObjs.swift */,
+				44C1962A2610758D00198872 /* TrafficCamera.swift */,
+				44C1962D26107B0D00198872 /* TrafficDisplayViewController.swift */,
 			);
 			path = Trafficker;
+			sourceTree = "<group>";
+		};
+		44C1961926105E2300198872 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				44C1961A26105E2F00198872 /* NetworkManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44C1961B26105E2F00198872 /* NetworkManager.swift in Sources */,
+				44C196272610650000198872 /* CodableObjs.swift in Sources */,
+				44C1962E26107B0D00198872 /* TrafficDisplayViewController.swift in Sources */,
+				44C1962B2610758D00198872 /* TrafficCamera.swift in Sources */,
 				44C196092610570500198872 /* ViewController.swift in Sources */,
 				44C196052610570500198872 /* AppDelegate.swift in Sources */,
 				44C196072610570500198872 /* SceneDelegate.swift in Sources */,

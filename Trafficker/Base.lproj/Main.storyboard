@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Trafficker-->
+        <!--Camera Trafficker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Trafficker" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,6 +18,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dqz-vG-w0H">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vda-fg-WCL"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -29,9 +32,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dqz-vG-w0H" secondAttribute="trailing" id="sjb-sx-aV5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Trafficker" id="dIe-ag-Nw6"/>
+                    <navigationItem key="navigationItem" title="Camera Trafficker" id="dIe-ag-Nw6"/>
                     <connections>
                         <outlet property="mapView" destination="dqz-vG-w0H" id="5NF-tY-2zG"/>
+                        <segue destination="8KL-aQ-CqW" kind="show" identifier="mapSegue" id="MSC-uU-FzM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -56,8 +60,73 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="109.82142857142857"/>
         </scene>
+        <!--Traffic Display View Controller-->
+        <scene sceneID="c02-OC-Zd4">
+            <objects>
+                <viewController id="8KL-aQ-CqW" customClass="TrafficDisplayViewController" customModule="Trafficker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pj2-uq-Kkp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2R8-QS-Pne">
+                                <rect key="frame" x="83" y="306" width="248" height="284.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera trafficking in progress ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3j1-Gg-6OJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dXt-Lj-oqD">
+                                        <rect key="frame" x="0.0" y="36.5" width="248" height="248"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="dXt-Lj-oqD" secondAttribute="height" multiplier="1:1" id="DVU-zz-oEF"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="nqR-oQ-AdV"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="dXt-Lj-oqD" firstAttribute="leading" secondItem="2R8-QS-Pne" secondAttribute="leading" id="7dl-km-99v"/>
+                                    <constraint firstItem="dXt-Lj-oqD" firstAttribute="top" secondItem="3j1-Gg-6OJ" secondAttribute="bottom" constant="16" id="BoK-Pw-LKq"/>
+                                    <constraint firstAttribute="trailing" secondItem="3j1-Gg-6OJ" secondAttribute="trailing" id="JId-m2-XNx"/>
+                                    <constraint firstItem="3j1-Gg-6OJ" firstAttribute="top" secondItem="2R8-QS-Pne" secondAttribute="top" id="XTU-st-zPK"/>
+                                    <constraint firstAttribute="bottom" secondItem="dXt-Lj-oqD" secondAttribute="bottom" id="dop-qd-81H"/>
+                                    <constraint firstAttribute="trailing" secondItem="dXt-Lj-oqD" secondAttribute="trailing" id="iyB-2g-hGR"/>
+                                    <constraint firstItem="3j1-Gg-6OJ" firstAttribute="leading" secondItem="2R8-QS-Pne" secondAttribute="leading" id="pgT-N4-1IZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xhZ-vo-MJS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2R8-QS-Pne" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xhZ-vo-MJS" secondAttribute="leading" constant="32" id="1kI-xF-5zL"/>
+                            <constraint firstItem="xhZ-vo-MJS" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2R8-QS-Pne" secondAttribute="bottom" constant="32" id="UXv-X1-Pde"/>
+                            <constraint firstItem="2R8-QS-Pne" firstAttribute="centerX" secondItem="Pj2-uq-Kkp" secondAttribute="centerX" id="Vel-Fe-GpU"/>
+                            <constraint firstItem="2R8-QS-Pne" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xhZ-vo-MJS" secondAttribute="top" constant="32" id="Xlg-XT-Hjr"/>
+                            <constraint firstItem="2R8-QS-Pne" firstAttribute="centerY" secondItem="Pj2-uq-Kkp" secondAttribute="centerY" id="cuR-Vz-vtK"/>
+                            <constraint firstItem="xhZ-vo-MJS" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2R8-QS-Pne" secondAttribute="trailing" constant="32" id="erP-En-Esi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Mg-Kf-PvV">
+                        <barButtonItem key="rightBarButtonItem" image="arrow.clockwise" catalog="system" id="6x6-5q-Lpn">
+                            <connections>
+                                <action selector="refreshImage:" destination="8KL-aQ-CqW" id="tzV-dM-VKd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="lastRefreshedLabel" destination="3j1-Gg-6OJ" id="W9e-c0-ymN"/>
+                        <outlet property="trafficImageView" destination="dXt-Lj-oqD" id="J4F-PD-7zB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ar8-y3-UBX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1881" y="110"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
